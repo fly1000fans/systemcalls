@@ -1,0 +1,45 @@
+1、strcspn
+
+头文件：#inclued<string.h>
+
+定义函数：size_t strcspn(const char *s, const char * reject);
+
+函数说明：strcspn()从参数s 字符串的开头计算连续的字符, 而这些字符都完全不在参数reject 所指的字符串中. 简单地说, 若strcspn()返回的数值为n, 则代表字符串s 开头连续有n 个字符都不含字符串reject 内的字符.
+
+返回值：返回字符串s 开头连续不含字符串reject 内的字符数目.
+
+范例
+#include <string.h>
+main()
+{
+    char *str = "Linux was first developed for 386/486-based pcs. ";
+    printf("%d\n", strcspn(str, " "));
+    printf("%d\n", strcspn(str, "/-"));
+    printf("%d\n", strcspn(str, "1234567890"));
+}
+
+执行结果：
+5 //只计算到" "的出现, 所以返回"Linux"的长度
+33 //计算到出现"/"或"－", 所以返回到"6"的长度
+30 // 计算到出现数字字符为止, 所以返回"3"出现前的长度
+ 
+ 
+2、strspn
+表头文件 #include<string.h>
+　　定义函数 size_t strspn (const char *s,const char * accept);
+　　函数说明 strspn()从参数s 字符串的开头计算连续的字符，而这些字符都完全是accept 所指字符串中的字符。简单的说，若strspn()返回的数值为n，则代表字符串s 开头连续有n 个字符都是属于字符串accept内的字符。
+　　返回值 返回字符串s开头连续包含字符串accept内的字符数目。
+　　范例
+　　1 #include <string.h>
+　　2 #include <stdio.h>
+　　3 main()
+　　4 {
+　　5 char *str="Linux was first developed for 386/486-based pcs.";
+　　6 printf("%d\n",strspn(str,"Linux"));
+　　7 printf("%d\n",strspn(str,"/-"));
+　　8 printf("%d\n",strspn(str,"1234567890"));
+　　9 }
+　　运行结果：
+　　5  //包含linux字符切
+　　0  // 开始不包含
+　　0   //开始不包含
